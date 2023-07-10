@@ -35,17 +35,17 @@ variable "image_description" {
 
 variable "source_image" {
   type    = string
-  default = "ubuntu-pro-1604-xenial-v20221201"
+  default = "devops-image"
 }
 
 variable "source_image_family" {
   type    = string
-  default = "ubuntu-pro-1604-lts"
+  default = "rhel-7-9-sap-ha"
 }
 
 variable "source_image_project_id" {
   type    = list(string)
-  default = ["ubuntu-os-pro-cloud"]
+  default = ["nifty-quanta-387606"]
 }
 
 variable "disk_size" {
