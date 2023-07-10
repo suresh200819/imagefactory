@@ -12,8 +12,8 @@ source "goolecompute" "image" {
   project_id                      = var.project_id
   region                          = var.region
   zone                            = var.zone
-  impersonate_service_account     = var.impersonate_service_account
-  disable_default_service_account = true
+  #impersonate_service_account     = var.impersonate_service_account
+  #disable_default_service_account = true
   source_image                    = var.source_image
   source_image_family             = var.source_image_family
   source_image_project_id         = var.source_image_project_id
