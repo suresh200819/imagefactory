@@ -80,7 +80,7 @@ variable "tags" {
 
 variable "impersonate_service_account" {
   type    = string
-  default = "fslive-cicd@nifty-quanta-387606.iam.gserviceaccount.com"
+  default = "539380689231-compute@developer.gserviceaccount.com"
 }
 
 variable "metadata" {
