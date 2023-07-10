@@ -1,6 +1,6 @@
 variable "project_id" {
   type    = string
-  default = "poc-adm-finserv-1133276"
+  default = "nifty-quanta-387606"
 }
 
 variable "region" {
@@ -35,17 +35,17 @@ variable "image_description" {
 
 variable "source_image" {
   type    = string
-  default = "ubuntu-2004-focal-v20230628"
+  default = "ubuntu-pro-1604-xenial-v20221201"
 }
 
 variable "source_image_family" {
   type    = string
-  default = "ubuntu-2004-lts"
+  default = "ubuntu-pro-1604-lts"
 }
 
 variable "source_image_project_id" {
   type    = list(string)
-  default = ["ubuntu-os-cloud"]
+  default = ["ubuntu-os-pro-cloud"]
 }
 
 variable "disk_size" {
@@ -60,27 +60,27 @@ variable "disk_type" {
 
 variable "network_project_id" {
   type    = string
-  default = "poc-adm-finserv-1133276"
+  default = "nifty-quanta-387606"
 }
 
 variable "network" {
   type    = string
-  default = "vpchost-eu-dev"
+  default = "default"
 }
 
 variable "subnetwork" {
   type    = string
-  default = "int-europe-west2"
+  default = "default"
 }
 
 variable "tags" {
   type    = list(string)
-  default = ["fw-a-e-iap", "fw-a-i-iap", "fw-a-e-tag", "fw-a-e-google-hc", "fw-a-i-tag", "fw-a-i-google-hc"]
+  default = []
 }
 
 variable "impersonate_service_account" {
   type    = string
-  default = "gcp-ops@poc-adm-finserv-1133276.iam.gserviceaccount.com"
+  default = "fslive-cicd@nifty-quanta-387606.iam.gserviceaccount.com"
 }
 
 variable "metadata" {
