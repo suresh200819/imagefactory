@@ -1,0 +1,49 @@
+---
+
+name: Packer
+
+on:
+  push:
+
+jobs:
+  packer:
+    runs-on: ubuntu-latest
+    name: packer
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # Initialize Packer Template
+      - name: Initialize Packer Template
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: |
+          packer init "/home/runner/work/imagefactory/imagefactory/nginx"
+      # setup gcp credentials file
+      - name: setup gcp credentials file
+        run: |
+          echo "${{ secrets.GOOGLE_CREDENTIALS }}" > /home/runner/work/imagefactory/imagefactory/nginx/credentials.json
+          pwd
+          ls -R
+        
+      # Validate Packer Template
+      - name: Validate Packer Template
+        env:
+         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+        run: |
+          packer validate "/home/runner/work/imagefactory/imagefactory/nginx"
+          pwd
+          
+      # setup gcp service account
+      - name: Gcloud Setup
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+          export_default_credentials: true
+
+      # Build Packer Template
+      - name: Build Packer Template
+        run: packer build "/home/runner/work/imagefactory/imagefactory/nginx"
+        env:
+         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
