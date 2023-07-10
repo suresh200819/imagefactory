@@ -22,7 +22,7 @@ source "goolecompute" "image" {
   image_description               = var.image_description
   ssh_username                    = "ubuntu"
   ssh_pty                         = false
-  #disk_size                       = var.disk_size
+  disk_size                       = var.disk_size
   machine_type                    = var.machine_type
   disk_type                       = var.disk_type
   network_project_id              = var.network_project_id
